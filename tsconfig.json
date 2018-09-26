@@ -5,11 +5,11 @@
         "pretty": true,
         "sourceMap": true,
         "target": "es6",
-        "outDir": "./dist",
+        "outDir": "./src",
         "baseUrl": "./lib"
     },
     "include": [
-        "lib/**/*.ts"
+        "src/**/*.ts"
     ],
     "exclude": [
         "node_modules"
