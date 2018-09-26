@@ -1,6 +1,7 @@
 import app from './app';
 import { Config } from './config';
 import * as socketIo from 'socket.io-client';
+import { ZiwoWs } from './ziwo';
 
 var config = new Config();
 
@@ -14,10 +15,24 @@ const socket = socketIo(config.ziwoApiUrl, {
     reconnection: true
 });
 
-socket.on('GET /live/queues', function (data) {
-    console.log('queues:' + data);
+socket.on('GET /live/queues', ZiwoWs.queues());
+
+socket.on('GET /live/numbers', function (data) {
+    console.log(data);
+});
+
+socket.on('GET /live/positions', function (data) {
+    console.log(data);
+});
+
+socket.on('GET /live/agents', function (data) {
+    console.log(data);
 });
 
 socket.on('GET /live/calls', function (data) {
-    console.log('calls' + data);
+    console.log(data);
+});
+
+socket.on('GET /live/queueCalls', function (data) {
+    console.log(data);
 });
