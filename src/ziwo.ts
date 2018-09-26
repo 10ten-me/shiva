@@ -12,7 +12,16 @@ export class ZiwoWs {
     });
   }
 
-  public listen() {
+  public reconfigure(config: Config) {
+    this.socket = socketIo(config.ziwoApiUrl, {
+      path: '/socket',
+      query: 'access_token=' + config.ziwoAdminToken,
+      reconnection: true
+    });
+    this.listen();
+  }
+
+  public listen(): void {
     this.socket.on('GET /live/queues', this.queues);
     this.socket.on('GET /live/numbers', this.numbers);
     this.socket.on('GET /live/positions', this.positions);
@@ -22,24 +31,24 @@ export class ZiwoWs {
     this.socket.on('GET /live/stats', this.stats);
   }
   private queues(data: any): void {
-    console.log(data);
+    //console.log(data);
   }
   private numbers(data: any): void {
-    console.log(data);
+    //console.log(data);
   }
   private positions(data: any): void {
-    console.log(data);
+    //console.log(data);
   }
   private agents(data: any): void {
-    console.log(data);
+    //console.log(data);
   }
   private calls(data: any): void {
     console.log(data);
   }
   private queueCalls(data: any): void {
-    console.log(data);
+    //console.log(data);
   }
   private stats(data: any): void {
-    console.log(data);
+    //console.log(data);
   }
 }
