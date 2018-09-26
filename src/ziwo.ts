@@ -1,15 +1,18 @@
 import * as socketIo from 'socket.io-client';
 import { Config } from './config';
+import * as winston from 'winston';
 
 export class ZiwoWs {
   public socket: socketIo;
+  public logger: winston.Logger;
 
-  constructor(config: Config) {
+  constructor(config: Config, logger: winston.Logger) {
     this.socket = socketIo(config.ziwoApiUrl, {
       path: '/socket',
       query: 'access_token=' + config.ziwoAdminToken,
       reconnection: true
     });
+    this.logger = logger;
   }
 
   public reconfigure(config: Config) {
@@ -43,10 +46,13 @@ export class ZiwoWs {
     //console.log(data);
   }
   private calls(data: any): void {
-    console.log(data);
+    // TODO @hnb2 this.logger.debug
+    console.log(JSON.stringify(data));
   }
   private queueCalls(data: any): void {
-    //console.log(data);
+    //{"result":true,"content":[{"callID":"0422855b-101c-43fd-a713-895e59d3becc","sessionUUID":"0422855b-101c-43fd-a713-895e59d3becc","callerID":"0581805998","callerName":"0581805998","systemEPOCH":"1537964463","joinedEPOCH":"1537964463","bridgeEPOCH":"0","agentCCLogin":"unknown","queueName":"Loic-testing","state":"Waiting","score":"0"}],"info":{"status":200}}
+
+    console.log(JSON.stringify(data));
   }
   private stats(data: any): void {
     //console.log(data);
