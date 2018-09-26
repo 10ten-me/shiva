@@ -4,11 +4,11 @@
   "description": "Catch and forward requests",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "dev": "ts-node ./src/server.ts",
+    "build": "./node_modules/.bin/tsc",
+    "dev": "./node_modules/.bin/ts-node ./src/server.ts",
     "lint": "./node_modules/.bin/tslint -p tsconfig.json",
     "prod": "npm run build && npm run start",
-    "start": "nodemon ./dist/server.js"
+    "start": "./node_modules/.bin/nodemon ./dist/server.js"
   },
   "author": "",
   "license": "ISC",
