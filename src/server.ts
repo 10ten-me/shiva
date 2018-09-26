@@ -2,13 +2,15 @@ import app from './app';
 import { Config } from './config';
 import * as socketIo from 'socket.io-client';
 
-app.listen(Config.port, () => {
-    console.log('Express server listening on port ' + Config.port);
+var config = new Config();
+
+app.listen(config.port, () => {
+    console.log('Express server listening on port ' + config.port);
 });
 
-const socket = socketIo(Config.ziwo_api_url, {
+const socket = socketIo(config.ziwoApiUrl, {
     path: '/socket',
-    query: 'access_token=' + Config.ziwo_admin_token,
+    query: 'access_token=' + config.ziwoAdminToken,
     reconnection: true
 });
 
