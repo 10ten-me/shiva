@@ -1,16 +1,17 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
-    ],
-    "jsRules": {},
-    "rules": {
-        "max-line-length": {
-            "options": [120]
-        },
-        "quotemark": [true, "single"],
-        "no-console": [false],
-        "trailing-comma": [false]
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "max-line-length": {
+      "options": [120]
     },
-    "rulesDirectory": []
+    "quotemark": [true, "single"],
+    "no-console": [false],
+    "trailing-comma": [false],
+    "interface-name": [true, "never-prefix"]
+  },
+  "rulesDirectory": []
 }
