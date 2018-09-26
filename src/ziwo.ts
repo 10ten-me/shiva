@@ -1,7 +1,6 @@
 import * as socketIo from 'socket.io-client';
 import { Config } from './config';
 
-
 export class ZiwoWs {
   public socket: socketIo;
 
@@ -22,25 +21,25 @@ export class ZiwoWs {
     this.socket.on('GET /live/queueCalls', this.queueCalls);
     this.socket.on('GET /live/stats', this.stats);
   }
-  public queues(data: any) {
+  private queues(data: any): void {
     console.log(data);
   }
-  public numbers(data: any) {
+  private numbers(data: any): void {
     console.log(data);
   }
-  public positions(data: any) {
+  private positions(data: any): void {
     console.log(data);
   }
-  public agents(data: any) {
+  private agents(data: any): void {
     console.log(data);
   }
-  public calls(data: any) {
+  private calls(data: any): void {
     console.log(data);
   }
-  public queueCalls(data: any) {
+  private queueCalls(data: any): void {
     console.log(data);
   }
-  public stats(data: any) {
+  private stats(data: any): void {
     console.log(data);
   }
 }
